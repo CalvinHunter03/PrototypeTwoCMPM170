@@ -28,5 +28,10 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(cameraObject.forward * chargeSlider.value * chargePower, ForceMode.Impulse);
             chargeSlider.value = 0;
         }
+
+        if(Input.GetKeyDown("space"))
+        {
+            this.transform.Rotate(0f, 180f, 0f);
+        }
     }
 }
