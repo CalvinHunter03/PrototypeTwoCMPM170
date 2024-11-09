@@ -33,4 +33,12 @@ public class BatScript : MonoBehaviour
 
         rb.velocity = transform.forward * moveSpeed;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.CompareTag("Player"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
