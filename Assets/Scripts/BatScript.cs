@@ -14,13 +14,23 @@ public class BatScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        target = GameObject.Find("CapsulePlayer").transform;
+        if(GameObject.Find("CapsulePlayer"))
+        {
+            target = GameObject.Find("CapsulePlayer").transform;
+        }
+        else
+        {
+            target = null;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(!target)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void FixedUpdate()

@@ -27,4 +27,10 @@ public class PlayerCamera : MonoBehaviour
 
         cameraObject.localEulerAngles = Vector3.right * rotation;
     }
+
+    void OnDestroy()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 }

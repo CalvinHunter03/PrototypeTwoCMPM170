@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public EndScreenScript endScript;
     public Slider chargeSlider;
     public Transform cameraObject;
 
@@ -32,6 +33,14 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown("space"))
         {
             this.transform.Rotate(0f, 180f, 0f);
+        }
+    }
+
+    void OnDestroy()
+    {
+        if(endScript)
+        {
+            endScript.enabled = true;
         }
     }
 }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CollectableSpawner : MonoBehaviour
 {
@@ -9,6 +11,10 @@ public class CollectableSpawner : MonoBehaviour
     public GameObject[] platforms;
     [SerializeField] GameObject pickedPlatform;
     [SerializeField] float pickedCoordinate;
+
+    public TMP_Text pointsText;
+    [SerializeField] int points = -1;
+
 
     private void Awake()
     {
@@ -36,5 +42,8 @@ public class CollectableSpawner : MonoBehaviour
         Instantiate(collectable,
                     new Vector3(0f, pickedPlatform.transform.position.y + 1.5f, pickedPlatform.transform.position.z + pickedCoordinate),
                     Quaternion.identity);
+
+        points++;
+        pointsText.SetText("Points: " + points);
     }
 }

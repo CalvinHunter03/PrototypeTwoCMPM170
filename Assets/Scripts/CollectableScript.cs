@@ -22,19 +22,22 @@ public class CollectableScript : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        hit = Physics.SphereCastAll(transform.position, blastRadius, transform.forward, layerMask);
-
-        foreach(RaycastHit hitObject in hit)
+        if(collider.transform.CompareTag("Player"))
         {
-            if(hitObject.transform.CompareTag("Bat"))
+            hit = Physics.SphereCastAll(transform.position, blastRadius, transform.forward, layerMask);
+
+            foreach(RaycastHit hitObject in hit)
             {
-                Destroy(hitObject.transform.gameObject);
+                if(hitObject.transform.CompareTag("Bat"))
+                {
+                    Destroy(hitObject.transform.gameObject);
+                }
             }
+
+            CollectableSpawner.instance.SpawnCollectable();
+
+            Destroy(this.gameObject);
         }
-
-        CollectableSpawner.instance.SpawnCollectable();
-
-        Destroy(this.gameObject);
     }
 
     // void OnDrawGizmos()
