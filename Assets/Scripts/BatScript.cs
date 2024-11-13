@@ -8,9 +8,20 @@ public class BatScript : MonoBehaviour
     public Transform target;
     private Rigidbody rb;
     public float updateDelay;
+    public static GameObject batSound;
+    public AudioSource batAudio;
     [SerializeField] float updateTimer;
 
     // Start is called before the first frame update
+     void Awake()
+    {
+        // Initialize audio components
+        GameObject batSound = GameObject.Find("batSound");
+        if (batSound != null) {
+            batAudio = batSound.GetComponent<AudioSource>();
+        }
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -23,7 +34,6 @@ public class BatScript : MonoBehaviour
             target = null;
         }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -48,7 +58,12 @@ public class BatScript : MonoBehaviour
     {
         if(collision.transform.CompareTag("Player"))
         {
+            if (batAudio != null){
+                batAudio.Play();
+            }
             Destroy(collision.gameObject);
         }
+    
     }
 }
+
