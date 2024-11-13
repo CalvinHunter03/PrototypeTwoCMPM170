@@ -1621,6 +1621,8 @@ MonoBehaviour:
   endScript: {fileID: 2092870744}
   chargeSlider: {fileID: 2123967503}
   cameraObject: {fileID: 1593654802}
+  jumpSound: {fileID: 8300000, guid: 15607536bad4c40bc86219d58c8c65e2, type: 3}
+  cameraSwitch: {fileID: 8300000, guid: 09716c8efa63e4eeb84377719dbcb7b6, type: 3}
   chargePower: 20
 --- !u!54 &897360157
 Rigidbody:
