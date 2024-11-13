@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public Slider chargeSlider;
     public Transform cameraObject;
 
-    [SerializeField] private AudioClip jumpSound;
-    [SerializeField] private AudioClip cameraSwitch;
+    public AudioClip jumpSound;
+    public AudioClip cameraSwitch;
 
     public float chargePower;
 
