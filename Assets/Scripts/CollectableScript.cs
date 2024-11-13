@@ -6,6 +6,8 @@ public class CollectableScript : MonoBehaviour
 {
     public float blastRadius;
     public LayerMask layerMask;
+    public static GameObject coinSound;
+    public AudioSource coinAudio;
     RaycastHit[] hit;
 
     // Start is called before the first frame update
@@ -19,7 +21,11 @@ public class CollectableScript : MonoBehaviour
     {
         
     }
-
+    void Awake()
+    {
+        coinSound = GameObject.Find("coinSound");
+        coinAudio = coinSound.GetComponent<AudioSource>();
+    }
     void OnTriggerEnter(Collider collider)
     {
         if(collider.transform.CompareTag("Player"))
@@ -33,6 +39,8 @@ public class CollectableScript : MonoBehaviour
                     Destroy(hitObject.transform.gameObject);
                 }
             }
+            // Play the coin sound when a "Bat" is found
+            coinAudio.Play();
 
             CollectableSpawner.instance.SpawnCollectable();
 
