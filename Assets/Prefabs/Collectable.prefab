@@ -150,3 +150,5 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
+  collectCoin: {fileID: 8300000, guid: 2cc8224096cc4497689ab06a94adfbac, type: 3}
+  batDeath: {fileID: 8300000, guid: 1a7db1f4008db423e882f8db8e0aa2a6, type: 3}

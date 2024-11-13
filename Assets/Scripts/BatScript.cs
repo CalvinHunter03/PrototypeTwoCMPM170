@@ -13,11 +13,12 @@ public class BatScript : MonoBehaviour
     [SerializeField] float updateTimer;
 
     // Start is called before the first frame update
-     void Awake()
+    void Awake()
     {
         // Initialize audio components
         GameObject batSound = GameObject.Find("batSound");
-        if (batSound != null) {
+        if (batSound != null)
+        {
             batAudio = batSound.GetComponent<AudioSource>();
         }
     }
@@ -25,7 +26,7 @@ public class BatScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        if(GameObject.Find("CapsulePlayer"))
+        if (GameObject.Find("CapsulePlayer"))
         {
             target = GameObject.Find("CapsulePlayer").transform;
         }
@@ -37,7 +38,7 @@ public class BatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!target)
+        if (!target)
         {
             Destroy(this.gameObject);
         }
@@ -45,7 +46,7 @@ public class BatScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(Time.time > updateTimer)
+        if (Time.time > updateTimer)
         {
             this.transform.LookAt(target);
             updateTimer = Time.time + updateDelay;
@@ -56,14 +57,15 @@ public class BatScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.CompareTag("Player"))
+        if (collision.transform.CompareTag("Player"))
         {
-            if (batAudio != null){
+            if (batAudio != null)
+            {
                 batAudio.Play();
             }
             Destroy(collision.gameObject);
         }
-    
+
     }
 }
 

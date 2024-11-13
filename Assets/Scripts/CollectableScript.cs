@@ -6,43 +6,38 @@ public class CollectableScript : MonoBehaviour
 {
     public float blastRadius;
     public LayerMask layerMask;
-    public static GameObject coinSound;
-    public AudioSource coinAudio;
+    [SerializeField] private AudioClip collectCollectable;
+    [SerializeField] private AudioClip batDeath;
     RaycastHit[] hit;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    void Awake()
-    {
-        coinSound = GameObject.Find("coinSound");
-        coinAudio = coinSound.GetComponent<AudioSource>();
+
     }
     void OnTriggerEnter(Collider collider)
     {
-        if(collider.transform.CompareTag("Player"))
+        if (collider.transform.CompareTag("Player"))
         {
             hit = Physics.SphereCastAll(transform.position, blastRadius, transform.forward, layerMask);
 
-            foreach(RaycastHit hitObject in hit)
+            foreach (RaycastHit hitObject in hit)
             {
-                if(hitObject.transform.CompareTag("Bat"))
+                if (hitObject.transform.CompareTag("Bat"))
                 {
+                    SoundFxManager.instance.PlaySoundFXClip(batDeath, transform, 0.8f);
                     Destroy(hitObject.transform.gameObject);
                 }
             }
-            // Play the coin sound when a "Bat" is found
-            coinAudio.Play();
 
             CollectableSpawner.instance.SpawnCollectable();
+            SoundFxManager.instance.PlaySoundFXClip(collectCollectable, transform, 0.8f);
 
             Destroy(this.gameObject);
         }
