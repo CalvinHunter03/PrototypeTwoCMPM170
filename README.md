@@ -14,7 +14,7 @@ Welcome to Prototype 2, a dynamic 3D platformer built in Unity that breaks away 
   The game introduces a high-stakes challenge—bats that follow the player when alerted. If the bats catch the player, it results in a loss. This adds an extra layer of urgency to each move, as players must be mindful of timing and precision to stay ahead.
 
 - **Collectibles:**  
-  Throughout the levels, various collectibles are placed as rewards for precise launches and well-executed maneuvers. Collect these items to complete the level and enhance your score.
+  Throughout the levels, various collectibles are placed as rewards for precise launches and well-executed maneuvers. Collect these items to explode and get rid of some bats to enhance your score.
 
 ---
 
@@ -36,7 +36,7 @@ Welcome to Prototype 2, a dynamic 3D platformer built in Unity that breaks away 
 - **Unique Slingshot Mechanic** for engaging and strategic movement
 - **3D Platform Design** with floating islands, providing a vibrant and visually appealing game world
 - **Lose Condition with Bat Pursuit**, adding an element of suspense and caution
-- **Collectibles** to reward precise movement and exploration
+- **Collectibles** to reward precise movement and exploration that cause an explosion to get rid of some bats
 
 ---
 
